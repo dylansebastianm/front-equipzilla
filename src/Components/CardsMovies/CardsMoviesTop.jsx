@@ -18,16 +18,15 @@ export default function CardsMoviesTop({ onClick }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMoviesTop()); // Llamar a la acción que carga los datos de la API
-  }, []);
+    dispatch(getMoviesTop()); 
+  }, [dispatch]);
 
   if (allMoviesTop.length === 0) {
-    return <div>Cargando...</div>; // Mostrar mensaje de carga mientras el estado se llena
+    return <div>Cargando...</div>; 
   }
-  console.log("CONSOLE LOG CARDLIST", allMoviesTop);
   
   const baseURL = 'https://image.tmdb.org/t/p/';
-  const posterSize = 'w500'; // Elige el tamaño deseado para la imagen del póster (puedes cambiarlo según tus necesidades)
+  const posterSize = 'w500'; 
   
   
   const handleClick = (movie) => {

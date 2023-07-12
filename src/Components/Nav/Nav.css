@@ -5,9 +5,7 @@
     margin-top: 0.8rem;
     width: 98.5%;
     height: 3rem;
-    /* background-color: rgba(34,38,47,.48); */
     background-color: #333333;
-    /* margin-left: 0.7rem; */
     border: 1px solid hsla(0, 0%, 100%, 0.233);
     border-radius: 0.5rem;
     margin-bottom: 1rem;
@@ -50,8 +48,8 @@
 
 .links:hover{
     color: #f9f9fb;
-  text-decoration: none;
- text-shadow: 0 0 5px #46506b;
+    text-decoration: none;
+    text-shadow: 0 0 5px #46506b;
 }
 
 
@@ -85,15 +83,3 @@
     color: #959cb2;
 }
 
-
-/* @media (max-width: 650px) {
-    .links{
-        display: none !important;
-    }
-    .barrita{
-        display: none !important;
-    }
-    .iconsNav{
-        justify-content: center;
-    }
-  } */

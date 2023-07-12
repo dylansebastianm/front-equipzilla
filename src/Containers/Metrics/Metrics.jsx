@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { getMovies, getMoviesTop } from '../../Actions/index';
 import { useSelector, useDispatch } from 'react-redux';
 import "./Metrics.css"
 import { Card, Statistic } from 'antd';
-import { Area, Column, Pie } from '@ant-design/plots';
+import { Area, Column } from '@ant-design/plots';
 import { ArrowUpOutlined } from '@ant-design/icons';
 
 
@@ -51,7 +51,7 @@ export default function Metrics (){
   let sumaRates = 0;
   
   for (let i = 0; i < totalPeliculas; i++) {
-    sumaRates += combinedMovies[i].rate / 10; // Dividir por 10 para normalizar en un rango de 0 a 1
+    sumaRates += combinedMovies[i].rate / 10; // Estoy dividiendo por 10 para normalizar en un rango de 0 a 1
   }
   
   const promedioTotal = (sumaRates / totalPeliculas) * 10;
@@ -61,7 +61,7 @@ export default function Metrics (){
   const cantidadPorRate = {};
 
     for (let i = 0; i < totalPeliculas; i++) {
-      const rate = Math.round(combinedMovies[i].rate); // Redondear el rate a un número entero
+      const rate = Math.round(combinedMovies[i].rate); // Redonde el rate a un número entero
       cantidadPorRate[rate] = (cantidadPorRate[rate] || 0) + 1;
     }
 
@@ -82,7 +82,6 @@ export default function Metrics (){
         value: porcentaje,
       });
     }
-    console.log(porcentajes);
 
 
     const cantidadPorGenero = {};

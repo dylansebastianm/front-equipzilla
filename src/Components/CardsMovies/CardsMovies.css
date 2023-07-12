@@ -143,9 +143,7 @@
 .container-aux-primario{
     display: flex;
     text-align: center;
-    gap: 0.2rem;
-/*     background: #f3f4f6;
- */    
+    gap: 0.2rem;   
     background: #1d212a;
     border-radius: 1.5rem;
     color: #7b85a3;

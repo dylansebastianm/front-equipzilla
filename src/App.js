@@ -1,5 +1,3 @@
-
-
 import './App.css';
 import Nav from "./Components/Nav/Nav"
 import Footer from './Components/Footer/Footer';
@@ -31,30 +29,28 @@ export default function App() {
 
   const CombinedComponents = () => (
     <React.Fragment>
-    <iframe 
+      <iframe 
 
-   src="https://www.youtube.com/embed/YoZfBmtArtE" 
-   title="YouTube video player" 
-   frameborder="0" 
-   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-   allowfullscreen
-   className='video-nav'
-   />
+      src="https://www.youtube.com/embed/YoZfBmtArtE" 
+      title="YouTube video player" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen
+      className='video-nav'
+      />
 
-  <CardsHome />
-</React.Fragment>
+      <CardsHome />
+  </React.Fragment>
   );
 
   return (
     <div className="App">
     <BrowserRouter>
       <Nav />
- 
       <Routes>
-      <Route path="/" element={<CombinedComponents/>} />
-       
+        <Route path="/" element={<CombinedComponents/>} />
         <Route path="/metrics" element={<Metrics />} />
-        </Routes>
+      </Routes>
       <Footer />
     </BrowserRouter>
   </div>

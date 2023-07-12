@@ -1,4 +1,4 @@
-import { GET_MOVIES, GET_MOVIES_TOP, GET_GENRES, GET_CARD_DETAIL } from './types';
+import { GET_MOVIES, GET_MOVIES_TOP, GET_GENRES} from './types';
 import axios from "axios";
 
 export const getMoviesTop = () => {
@@ -12,7 +12,7 @@ export const getMoviesTop = () => {
         payload: movies
       });
     } catch (error) {
-      console.log('Error download top movies:', error);
+      console.log('Error download top moviesTop:', error);
     }
   };
 };

@@ -12,7 +12,6 @@
 
 .cardDetail-component{
     position: fixed;
-    /* width: 40rem; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -42,7 +41,7 @@
 
 .title-cardDetail{
     display: -webkit-box;
-  -webkit-line-clamp: 2; /* Número máximo de líneas visibles */
+  -webkit-line-clamp: 2; 
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -50,8 +49,8 @@
   font-size: 5rem;
   font-weight: 800;
   font-style: italic;
-  text-transform: uppercase; /* Convertir el texto a mayúsculas */
-  width: 35rem; /* Ancho máximo del título */
+  text-transform: uppercase; 
+  width: 35rem; 
 }
 
 .description-cardDetail{
@@ -138,7 +137,7 @@
 
 .buttons-responsive{
     position: fixed;
-    top: 27rem;
+    top: 30rem;
     display: flex;
     gap: 1rem;
 }

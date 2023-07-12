@@ -26,6 +26,7 @@ export default function CardsHome (){
          
         
             <Metrics/>
+            
                {isModalOpen && (
                 <CardDetail movie={selectedMovie} handleModalClose={handleModalClose} handleModalOpen={handleClick}/>
             )}
