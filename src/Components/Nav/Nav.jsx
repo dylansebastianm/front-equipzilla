@@ -18,18 +18,6 @@ export default function Nav () {
                         <p  className="links"> 
                         Home
                         </p>
-                        </div>
-
-                        <div>
-                        < p className="links"> 
-                        Metrics
-                        </p>
-                        </div>
-
-                        <div>
-                        < p className="links"> 
-                        Example ruta
-                        </p>
                         </div>  
                      </div> 
                  <div className="barrita">|</div>

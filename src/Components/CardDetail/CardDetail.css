@@ -93,34 +93,52 @@
     margin-left: 1rem;
   }
 
-  @media (max-width: 950px) {
-    .cardsDetail-container-component{  
-        margin:2rem;
-  
-    }
-   
-    .imgCard{
-    width: 100% !important;
-    height: 100% !important;
-   
-    }
 
-    
-  
-    .cardShadow{
-        width: 100% !important;
-        height: 100% !important;
-    }
-    
-    .buttons-cardDetail {
-        display: flex;
-        gap: 1rem;
-        position: fixed;
-        top: 30rem;
-        left: 0;
-        margin-left: 1rem;
-      }
+  .cardDetail-component-responsive{
+    display: flex;
+    position: fixed;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+    background-color: rgba(0, 0, 0, 0.8)
+  }
+
+  .img-cardDetail-responsive{
+    filter: brightness(50%);
+
+  }
+
+  .description-responsive{
+    display: flex;
+    text-align: start;
+    color: #f9f9fbd2;
+    font-style: italic;
 
 
+  }
 
- }
+  .title-responsive{
+    color: #f9f9fbd2;
+    font-style: italic;
+
+}
+
+.button-cardDetail-responsive{
+    display: flex;
+    align-items: center;
+    background-color: #212121;
+    color: #f9f9fbbe;
+
+}
+
+.buttons-responsive{
+    position: fixed;
+    top: 27rem;
+    display: flex;
+    gap: 1rem;
+}

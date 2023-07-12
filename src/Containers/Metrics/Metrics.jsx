@@ -1,32 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { MailOutlined } from '@ant-design/icons';
-import { Pie } from '@ant-design/plots';
 import { getMovies, getMoviesTop } from '../../Actions/index';
 import { useSelector, useDispatch } from 'react-redux';
-
-import { Menu } from 'antd';
 import "./Metrics.css"
-
-
-function getItem(label, key, icon, children, type) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  };
-}
-const items = [
-  getItem('Navigation One', 'sub1', <MailOutlined />, [
-    getItem('Option 1', '1'),
-    getItem('Option 2', '2'),
-    getItem('Option 3', '3'),
-    getItem('Option 4', '4'),
-  ]),
-];
-
-const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+import { Card, Statistic } from 'antd';
+import { Area, Column, Pie } from '@ant-design/plots';
+import { ArrowUpOutlined } from '@ant-design/icons';
 
 
 
@@ -50,113 +28,193 @@ export default function Metrics (){
 
 
   const combinedMovies = [...allMovies, ...allMoviesTop];
-
-
-  const [openKeys, setOpenKeys] = useState(['sub1']);
-  const onOpenChange = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      setOpenKeys(keys);
+ 
+  const lanzamientosPorAnio = combinedMovies.reduce((acumulador, pelicula) => {
+    const anio = new Date(pelicula.date).getFullYear();
+    if (!acumulador[anio]) {
+      acumulador[anio] = 1;
     } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+      acumulador[anio]++;
     }
+    return acumulador;
+  }, {});
+
+
+
+  const dataDate = Object.entries(lanzamientosPorAnio).map(([anio, cantidad]) => ({
+    date: parseInt(anio),
+    value: cantidad,
+  }));
+
+
+  const totalPeliculas = combinedMovies.length;
+  let sumaRates = 0;
+  
+  for (let i = 0; i < totalPeliculas; i++) {
+    sumaRates += combinedMovies[i].rate / 10; // Dividir por 10 para normalizar en un rango de 0 a 1
+  }
+  
+  const promedioTotal = (sumaRates / totalPeliculas) * 10;
+  
+
+
+  const cantidadPorRate = {};
+
+    for (let i = 0; i < totalPeliculas; i++) {
+      const rate = Math.round(combinedMovies[i].rate); // Redondear el rate a un número entero
+      cantidadPorRate[rate] = (cantidadPorRate[rate] || 0) + 1;
+    }
+
+    const porcentajes = {};
+
+    for (let rate = 1; rate <= 10; rate++) {
+      const cantidad = cantidadPorRate[rate] || 0;
+      const porcentaje = (cantidad / totalPeliculas) * 100;
+      porcentajes[rate] = porcentaje.toFixed(2);
+    }
+
+    const dataRate = [];
+
+    for (let rate = 1; rate <= 10; rate++) {
+      const porcentaje = parseFloat(porcentajes[rate]);
+      dataRate.push({
+        rate: rate.toString(),
+        value: porcentaje,
+      });
+    }
+    console.log(porcentajes);
+
+
+    const cantidadPorGenero = {};
+
+for (let i = 0; i < combinedMovies.length; i++) {
+  const generos = combinedMovies[i].Genres;
+
+  for (let j = 0; j < generos.length; j++) {
+    const genero = generos[j].name;
+
+    if (!cantidadPorGenero[genero]) {
+      cantidadPorGenero[genero] = 1;
+    } else {
+      cantidadPorGenero[genero]++;
+    }
+  }
+}
+
+const dataGenre = Object.entries(cantidadPorGenero).map(([genero, cantidad]) => ({
+  genre: genero,
+  value: cantidad,
+}));
+
+
+
+
+  
+  const configDate = {
+    data:dataDate,
+    xField: 'date',
+    yField: 'value',
+    xAxis: false,
+    yAxis: false,
   };
 
-  const data = [
-    {
-      type: '分类一',
-      value: 27,
-    },
-    {
-      type: '分类二',
-      value: 25,
-    },
-    {
-      type: '分类三',
-      value: 18,
-    },
-    {
-      type: '分类四',
-      value: 15,
-    },
-    {
-      type: '分类五',
-      value: 10,
-    },
-    {
-      type: '其他',
-      value: 5,
-    },
-  ];
-  function contarPeliculasPorGenero(combinedMovies) {
-    // Crear un objeto para almacenar los conteos de género
-    const conteoGeneros = {};
-  
-    // Recorrer el array combinedMovies
-    for (let i = 0; i < combinedMovies.length; i++) {
-      const pelicula = combinedMovies[i];
-  
-      // Verificar si la película tiene un género asignado
-      if (pelicula.Genres && pelicula.Genres.length > 0) {
-        // Recorrer los géneros de la película
-        for (let j = 0; j < pelicula.Genres.length; j++) {
-          const genero = pelicula.Genres[j].name;
-  
-          // Incrementar el conteo del género correspondiente
-          if (conteoGeneros[genero]) {
-            conteoGeneros[genero]++;
-          } else {
-            conteoGeneros[genero] = 1;
-          }
-        }
-      }
-    }
-  
-    // Retornar el objeto con los conteos de género
-    return conteoGeneros;
-    }
+  const configRate = {
+    data:dataRate,
+    xField: 'rate',
+    yField: 'value',
+    xAxis: false,
+    yAxis: false,
+  };
 
-    const conteo = contarPeliculasPorGenero(combinedMovies);
-    console.log("DATA 100% REAL", conteo)
 
-  
 
-  const config = {
-    appendPadding: 10,
-    data,
-    angleField: 'value',
-    colorField: 'type',
-    radius: 0.8,
-    label: {
-      type: 'outer',
-      content: '{name} {percentage}',
-    },
-    interactions: [
-      {
-        type: 'pie-legend-active',
-      },
-      {
-        type: 'element-active',
-      },
-    ],}
+  const configGenre = {
+    data: dataGenre.sort((a, b) => a.value - b.value),
+    xField: 'genre',
+    yField: 'value',
+    xAxis: false,
+    yAxis: false,
+  };
+
   
 
   return (
-    <div className='metrics-component'>
-         <Menu
-        mode="inline"
-        openKeys={openKeys}
-        onOpenChange={onOpenChange}
-        style={{
-            width: 256,
-        }}
-        items={items}
-        />
+    <div className='metrics-conteiner'>
+    <Card
+      size="small"
+      title={
+        <Statistic title="Films quantity" value={combinedMovies.length}/>
+      }
+      style={{
+        width: 300,
+        height:150
+      }}
+      className='carta-metricas'
+      headStyle={{
+        borderBottom: 'none'
+      }}
+    ><Area {...configGenre} height={100} width={100} className='grafico-cartas'/></Card>
 
-        
-  
-  
-        <Pie {...config} />;
+
+    <Card
+      size="small"
+      title={
+        <Statistic title="Quantity of genres" value={`${Object.keys(cantidadPorGenero).length} genres`} />
+      }
+      style={{
+        width: 300,
+        height: 150
+      }}
+      className='carta-metricas'
+      headStyle={{
+        borderBottom: 'none'
+      }}
+    >
+      <Column {...configGenre} height={100} width={100} className='grafico-cartas' />
+    </Card>
+
+
+    <Card
+      size="small"
+      title={
+        <Statistic title="Amount per year"  value={`${lanzamientosPorAnio[2023]} last year`}      valueStyle={{
+          color: '#3f8600',
+        }}
+        prefix={<ArrowUpOutlined />}/>
+      }
+      style={{
+        width: 300,
+        height:150
+      }}
+      className='carta-metricas'
+      headStyle={{
+        borderBottom: 'none'
+      }}
+    ><Area {...configDate} height={100} width={100} className='grafico-cartas'/></Card>
+
+        <Card
+      size="small"
+      title={
+        <Statistic
+          title="Rate"
+          value={promedioTotal}
+          precision={1}
+          valueStyle={{
+            color: '#3f8600',
+          }}
+          prefix={<ArrowUpOutlined />}
+          suffix="%"
+        />
+      }
+      style={{
+        width: 300,
+        height:150
+      }}
+      className='carta-metricas'
+      headStyle={{
+        borderBottom: 'none'
+      }}
+      ><Column {...configRate} height={100} width={100} className='grafico-cartas'/></Card>
 
     </div>
    
