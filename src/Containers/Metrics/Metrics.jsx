@@ -143,7 +143,15 @@ const dataGenre = Object.entries(cantidadPorGenero).map(([genero, cantidad]) => 
     <Card
       size="small"
       title={
-        <Statistic title="Films quantity" value={combinedMovies.length}/>
+        <Statistic title={
+          <div className='titles-metrics-home'>
+            Films quantity
+          </div>} 
+          value={combinedMovies.length}
+          valueStyle={{
+          color: '#454a5f',
+          }}
+          />
       }
       style={{
         width: 300,
@@ -159,7 +167,15 @@ const dataGenre = Object.entries(cantidadPorGenero).map(([genero, cantidad]) => 
     <Card
       size="small"
       title={
-        <Statistic title="Quantity of genres" value={`${Object.keys(cantidadPorGenero).length} genres`} />
+        <Statistic title={
+        <div className='titles-metrics-home'>
+          Quantity of genres
+        </div> }
+        value={`${Object.keys(cantidadPorGenero).length} genres`}
+        valueStyle={{
+          color: '#454a5f',
+          }}
+         />
       }
       style={{
         width: 300,
@@ -177,8 +193,13 @@ const dataGenre = Object.entries(cantidadPorGenero).map(([genero, cantidad]) => 
     <Card
       size="small"
       title={
-        <Statistic title="Amount per year"  value={`${lanzamientosPorAnio[2023]} last year`}      valueStyle={{
-          color: '#3f8600',
+        <Statistic title={
+        <div className='titles-metrics-home'>
+          Amount per year
+        </div>}  
+        value={`${lanzamientosPorAnio[2023]} last year`}      
+        valueStyle={{
+        color: '#454a5f',
         }}
         prefix={<ArrowUpOutlined />}/>
       }
@@ -196,11 +217,15 @@ const dataGenre = Object.entries(cantidadPorGenero).map(([genero, cantidad]) => 
       size="small"
       title={
         <Statistic
-          title="Rate"
+          title={
+            <div className='titles-metrics-home'>
+              Rate
+            </div>}
           value={promedioTotal}
+          
           precision={1}
           valueStyle={{
-            color: '#3f8600',
+            color: '#454a5f',
           }}
           prefix={<ArrowUpOutlined />}
           suffix="%"

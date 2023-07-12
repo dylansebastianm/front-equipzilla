@@ -12,14 +12,19 @@
     width:100px;
     height: 100px;
 }
+.titles-metrics-home{
+    color:#f9f9fbd2
+}
 
 .carta-metricas{
     display: flex;
- justify-content: space-around;
- background-color:#15171e;
- border:none;
- color: #f9f9fbd2 !important;
- box-shadow: 0 0 10px #333333;
+    justify-content: space-around;
+    background-color:#0000001e;
+    border:none;
+    color: #f9f9fbd2 !important;
+    box-shadow: 0 0 10px #333333;
+    z-index: 9999;
+
 }
 
 @media (max-width: 985px) {

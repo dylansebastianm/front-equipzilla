@@ -38,7 +38,7 @@ export default function CardsMovies({onClick}) {
   const genresMovies = Object.keys(moviesByGenre)
 
   return (
-    <div className='cards-component-container'>
+    <div className='cards-component-container-primario'>
      
 
         {genresMovies.filter(genreName => moviesByGenre[genreName].length > 0).map(genreName => (

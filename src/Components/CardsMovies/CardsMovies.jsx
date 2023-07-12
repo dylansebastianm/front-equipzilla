@@ -31,7 +31,7 @@ export default function CardsMovies({ onClick }) {
   return (
     <div className="title-CardsMovies-container">
       
-      <div className="cards-component-container-primario">
+      <div className="cards-component-container">
       <p className="title-genres">Most popular</p>
         {allMovies && allMovies.length > 0 ? (
           <Carousel cols={5} rows={1} gap={10} loop>

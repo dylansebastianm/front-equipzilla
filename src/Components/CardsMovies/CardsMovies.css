@@ -208,7 +208,7 @@
     .cards-component-container-primario{
         display: flex;
         flex-direction: column;
-        width: 80%;
+        width: 100%;
     }
     .cards-component-container{
         display: flex;
