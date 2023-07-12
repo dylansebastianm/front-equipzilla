@@ -1,0 +1,10 @@
+.CardsHome-container{
+    display: flex;
+    flex-direction: column;
+   
+    flex-wrap: wrap;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    width: 100%;
+}
+

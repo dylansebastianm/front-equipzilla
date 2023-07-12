@@ -1,0 +1,4 @@
+.metrics-component{
+    display: flex;
+    min-height: calc(100vh - 45.2px);
+}

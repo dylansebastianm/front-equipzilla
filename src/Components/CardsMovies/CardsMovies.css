@@ -1,0 +1,225 @@
+.title-CardsMovies-container{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+
+.cards-component-container{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem; 
+    width: 80rem;
+
+
+}
+.cards-component-container-primario{
+    margin-left: auto;
+    margin-right: auto; 
+    margin-bottom: 2rem; 
+    width: 80rem;  
+}
+
+.item-description-container{
+    gap: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    
+}
+
+.container-aux{
+    display: flex;
+    gap: 0.2rem;
+    background: #1d212a;
+    border-radius: 1.5rem;
+    color: #7b85a3;
+    font-size: .75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+}
+
+.genres-pastilla{
+   
+    gap: 0.2rem;
+    background: #1d212a;
+    border-radius: 1.5rem;
+    color: #7b85a3;
+    font-size: .75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+}
+
+
+.card-title{
+    text-align: start;
+    font-weight: 600;
+    color: #f9f9fb;
+    margin-left: 0.2rem;
+}
+
+.starIcon{
+    display: flex;
+    font-size: 0.8rem;
+    align-items: center;
+}
+
+.genres-container{
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80rem;
+    gap: 0.5rem;
+    margin-left: 1rem; 
+    
+}
+
+.genres-container-aux{
+    margin-bottom: 2rem;
+}
+
+.title-genres{
+    display: flex;
+    text-align: start;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #333333;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-style: italic;
+    margin-left: 1rem;
+
+}
+
+.title-genres-aux{
+    display: flex;
+    text-align: start;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #333333;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-style: italic;
+    margin-left: 3rem;
+
+}
+
+
+
+
+
+
+
+.genres-container-primario{
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
+.genres-pastilla-primario{
+    gap: 0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    background: #1d212a;
+    border-radius: 1.5rem;
+    color: #7b85a3;
+    font-size: .75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+}
+
+.item-description-container-primario{
+    gap: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-aux-primario{
+    display: flex;
+    text-align: center;
+    gap: 0.2rem;
+/*     background: #f3f4f6;
+ */    
+    background: #1d212a;
+    border-radius: 1.5rem;
+    color: #7b85a3;
+    font-size: .75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+}
+
+
+.description-card-primario{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+
+.allCards{
+    border-color: #15171e;
+    background-color: #15171e !important;
+}
+
+.ant-card:hover {
+    box-shadow: 0 0 10px #333333;
+  }
+
+.icon-see-more{
+    font-size: 1rem;
+    color: #fff;
+
+
+}
+
+.button-see-more{
+    align-items: center;
+    display: flex;
+    position: fixed;
+    top: 31rem;
+    background-color: #1b1f2c;
+    border: 1px solid #7b85a33b;
+    color: #fff;
+  }
+
+  .button-see-more2{
+    margin-top: 1rem;
+    align-items: center;
+    display: flex;
+    background-color: #1b1f2c;
+    border: 1px solid #7b85a33b;
+    color: #fff;
+
+  }
+
+  @media (max-width: 985px) {
+    .genres-container{
+     width: 100%   !important;
+        
+    }
+    .cards-component-container-primario{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+    .cards-component-container{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .title-CardsMovies-container{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    
+  }

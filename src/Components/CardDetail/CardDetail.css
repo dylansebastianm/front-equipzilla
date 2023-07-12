@@ -1,0 +1,126 @@
+.imgCard{
+    width: 22rem !important;
+    height: 33rem !important;
+    border-radius: 0.5rem !important;
+    filter: brightness(50%);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+    margin-right: 1rem;
+    
+}
+
+.cardDetail-component{
+    position: fixed;
+    /* width: 40rem; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  
+    
+}
+.cardShadow{
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+    background-color: rgba(0, 0, 0, 0.8)
+
+    
+    
+}
+.title-cardDetail{
+    width: 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: start;
+    color: #f9f9fbd2;
+    font-size: 5rem;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.title-cardDetail{
+    display: -webkit-box;
+  -webkit-line-clamp: 2; /* Número máximo de líneas visibles */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #f9f9fbd2;
+  font-size: 5rem;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase; /* Convertir el texto a mayúsculas */
+  width: 35rem; /* Ancho máximo del título */
+}
+
+.description-cardDetail{
+    display: flex;
+    text-align: start;
+    font-style: italic;
+    color: #f9f9fbd2;
+
+}
+
+.cardsDetail-container-component{
+    display: flex;
+    position: fixed;
+    /* width: 40rem; */
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    
+}
+
+.button-cardDetail{
+    display: flex;
+    align-items: center;
+    background-color: #212121;
+    color: #f9f9fbbe;
+}
+
+.icon-card-detail{
+    font-size: 1rem;
+}
+
+.buttons-cardDetail {
+    display: flex;
+    gap: 1rem;
+    position: fixed;
+    top: 30rem;
+    left: 0;
+    margin-left: 1rem;
+  }
+
+  @media (max-width: 950px) {
+    .cardsDetail-container-component{  
+        margin:2rem;
+  
+    }
+   
+    .imgCard{
+    width: 100% !important;
+    height: 100% !important;
+   
+    }
+
+    
+  
+    .cardShadow{
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    .buttons-cardDetail {
+        display: flex;
+        gap: 1rem;
+        position: fixed;
+        top: 30rem;
+        left: 0;
+        margin-left: 1rem;
+      }
+
+
+
+ }
